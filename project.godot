@@ -11,4 +11,21 @@ config_version=5
 [application]
 
 config/name="Lux Game Template"
+run/main_scene="uid://cx87h04vsqr1s"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/image="uid://fw1wb517thso"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/size/resizable=false
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://components/": "orange",
+"res://entities/": "teal"
+}
