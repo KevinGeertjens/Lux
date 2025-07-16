@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://7a6ryudpy8iv"
-path="res://.godot/imported/bahnschrift.TTF-c9e2c44ec9950db793d535c72fc1ab90.fontdata"
+uid="uid://cxslm6uq2wpbg"
+path="res://.godot/imported/Play-Bold.ttf-b7d7d7dc1a34bf2b896d67854934e3c8.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/bahnschrift.TTF"
-dest_files=["res://.godot/imported/bahnschrift.TTF-c9e2c44ec9950db793d535c72fc1ab90.fontdata"]
+source_file="res://assets/fonts/Play-Bold.ttf"
+dest_files=["res://.godot/imported/Play-Bold.ttf-b7d7d7dc1a34bf2b896d67854934e3c8.fontdata"]
 
 [params]
 
@@ -18,12 +18,12 @@ generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
-msdf_size=250
+msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
-hinting=2
-subpixel_positioning=0
-keep_rounding_remainders=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]
@@ -33,12 +33,7 @@ preload=[{
 "chars": [],
 "glyphs": [],
 "name": "New Configuration",
-"size": Vector2i(16, 0),
-&"variation_embolden": 0.0,
-&"variation_opentype": {
-2003072104: 100,
-2003265652: 400
-}
+"size": Vector2i(16, 0)
 }]
 language_support={}
 script_support={}

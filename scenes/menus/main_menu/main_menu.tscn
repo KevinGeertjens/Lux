@@ -32,7 +32,6 @@ vertical_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="Margin/VBox"]
 layout_mode = 2
-theme_override_constants/separation = 10
 
 [node name="PlayButton" type="Button" parent="Margin/VBox/Buttons"]
 layout_mode = 2
