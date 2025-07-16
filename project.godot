@@ -15,17 +15,33 @@ run/main_scene="uid://cx87h04vsqr1s"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/image="uid://fw1wb517thso"
 
+[autoload]
+
+SceneManager="*res://autoload/scene_manager.gd"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [file_customization]
 
 folder_colors={
 "res://assets/": "yellow",
-"res://components/": "orange",
-"res://entities/": "teal"
+"res://autoload/": "purple",
+"res://components/": "red",
+"res://entities/": "teal",
+"res://resources/": "orange",
+"res://utilities/": "pink"
 }
+
+[gui]
+
+theme/default_font_generate_mipmaps=true
+
+[rendering]
+
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

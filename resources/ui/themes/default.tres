@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dqqhynmg03neg"]
+
+[ext_resource type="FontFile" uid="uid://7a6ryudpy8iv" path="res://assets/fonts/bahnschrift.TTF" id="1_k2jd7"]
+
+[resource]
+default_font = ExtResource("1_k2jd7")
+default_font_size = 24
