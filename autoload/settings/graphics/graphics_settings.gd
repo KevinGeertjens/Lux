@@ -19,14 +19,14 @@ func _set_constants() -> void:
 	}
 
 func _apply() -> void:
-	_set_window_size(settings["windowSize"])
-	_set_window_mode(settings["windowMode"])
-	_set_monitor(settings["monitor"])
-	_set_vsync(settings["vsync"])
+	set_window_size(settings["windowSize"])
+	set_window_mode(settings["windowMode"])
+	set_monitor(settings["monitor"])
+	set_vsync(settings["vsync"])
 
 
 #region: Setters
-func _set_window_size(windowSize: String) -> void:
+func set_window_size(windowSize: String) -> void:
 	if WINDOW_SIZE.find(windowSize) < 0:
 		push_error("Could not set window size: windowSize not in WINDOW_SIZES")
 		return
@@ -38,38 +38,41 @@ func _set_window_size(windowSize: String) -> void:
 
 	var width := int(split[0])
 	var height := int(split[1])
-	var vector := Vector2(width, height)
+	var vector := Vector2i(width, height)
 
-	DisplayServer.window_set_size(vector)
+	get_window().size = vector
 	settings["windowSize"] = windowSize
 	_save()
 
-func _set_window_mode(windowMode: WINDOW_MODE) -> void:
-	var mode: int
+	var offset: Vector2 = (DisplayServer.screen_get_size() - DisplayServer.window_get_size()) / 2
+	DisplayServer.window_set_position(offset)
+	set_monitor(settings["monitor"])
+
+func set_window_mode(windowMode: WINDOW_MODE) -> void:
+	var mode: Window.Mode
 	var borderlessWindow: bool
 
 	match int(windowMode):
 		WINDOW_MODE.FULLSCREEN:	
-			mode = DisplayServer.WINDOW_MODE_FULLSCREEN
+			mode = Window.MODE_FULLSCREEN
 			borderlessWindow = false
 		WINDOW_MODE.BORDERLESS_WINDOW:
-			mode = DisplayServer.WINDOW_MODE_WINDOWED
+			mode = Window.MODE_WINDOWED
 			borderlessWindow = true
 		WINDOW_MODE.WINDOWED:
-			mode = DisplayServer.WINDOW_MODE_WINDOWED
+			mode = Window.MODE_WINDOWED
 			borderlessWindow = false
 
-	DisplayServer.window_set_mode(mode)
-	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, borderlessWindow)
+	var window: Window = get_window()
+	window.set_mode(mode)
+	window.borderless = borderlessWindow
 
-	settings["windowMode"] = int(windowMode)
+	settings["windowMode"] = windowMode
 	_save()
 
-	# Optional: if resize and reposition is necessary
-	# DisplayServer.window_set_current_screen(_settings["monitor"])
-	# _set_window_size(_settings['window_size'])
+	set_window_size(settings['windowSize'])
 	
-func _set_monitor(monitorIndex: int) -> void:
+func set_monitor(monitorIndex: int) -> void:
 	var screenCount: int = DisplayServer.get_screen_count()
 	if monitorIndex > screenCount:
 		push_error("Could not set monitor: monitorIndex was %s, while there are only %s monitors available" % monitorIndex, screenCount)
@@ -78,7 +81,7 @@ func _set_monitor(monitorIndex: int) -> void:
 	settings["monitor"] = monitorIndex
 	_save()
 
-func _set_vsync(vsyncEnabled: bool) -> void:
+func set_vsync(vsyncEnabled: bool) -> void:
 	var map = {
 		false: DisplayServer.VSYNC_DISABLED,
 		true: DisplayServer.VSYNC_ENABLED
@@ -86,7 +89,7 @@ func _set_vsync(vsyncEnabled: bool) -> void:
 
 	var vsyncMode: int = map[vsyncEnabled]
 	DisplayServer.window_set_vsync_mode(vsyncMode)
-	settings["vsync"] = vsyncMode
+	settings["vsync"] = vsyncEnabled
 	_save()
 
 #endregion

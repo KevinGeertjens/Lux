@@ -60,3 +60,17 @@ size_flags_horizontal = 3
 
 [node name="SideMenu" type="VBoxContainer" parent="HBox"]
 layout_mode = 2
+
+[node name="Filler" type="Control" parent="HBox/SideMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DefaultButton" type="Button" parent="HBox/SideMenu"]
+layout_mode = 2
+text = "Default Settings"
+
+[connection signal="item_selected" from="HBox/Grid/WindowSizeButton" to="." method="_on_window_size_button_item_selected"]
+[connection signal="item_selected" from="HBox/Grid/WindowModeButton" to="." method="_on_window_mode_button_item_selected"]
+[connection signal="item_selected" from="HBox/Grid/MonitorButton" to="." method="_on_monitor_button_item_selected"]
+[connection signal="toggled" from="HBox/Grid/VsyncCheckBox" to="." method="_on_vsync_check_box_toggled"]
+[connection signal="pressed" from="HBox/SideMenu/DefaultButton" to="." method="_on_default_button_pressed"]

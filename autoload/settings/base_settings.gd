@@ -15,7 +15,15 @@ func _load() -> void:
 	if loadedSettings:
 		settings = loadedSettings
 	else:
-		settings = DEFAULT_SETTINGS
+		settings = DEFAULT_SETTINGS.duplicate()
 
 func _save() -> void:
 	JsonFileUtils.save_dict(settings, PATH)
+
+func _apply() -> void:
+	pass # overwrite in implementations
+
+func set_default_settings() -> void:
+	settings = DEFAULT_SETTINGS.duplicate()
+	_apply()
+	_save()
