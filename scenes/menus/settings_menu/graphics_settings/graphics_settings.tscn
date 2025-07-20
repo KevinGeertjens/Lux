@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlyro3lv8oksq"]
+
+[ext_resource type="Theme" uid="uid://dqqhynmg03neg" path="res://resources/ui/themes/default.tres" id="1_xon03"]
+
+[node name="GraphicsSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xon03")
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="HBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="WindowSizeLabel" type="Label" parent="HBox/Grid"]
+layout_mode = 2
+text = "Window Size"
+
+[node name="WindowSizeButton" type="OptionButton" parent="HBox/Grid"]
+layout_mode = 2
+
+[node name="WindowModeLabel" type="Label" parent="HBox/Grid"]
+layout_mode = 2
+text = "Window Mode"
+
+[node name="WindowModeButton" type="OptionButton" parent="HBox/Grid"]
+layout_mode = 2
+
+[node name="MonitorLabel" type="Label" parent="HBox/Grid"]
+layout_mode = 2
+text = "Monitor"
+
+[node name="MonitorButton" type="OptionButton" parent="HBox/Grid"]
+layout_mode = 2
+
+[node name="VsyncLabel" type="Label" parent="HBox/Grid"]
+layout_mode = 2
+text = "Vsync"
+
+[node name="VsyncCheckBox" type="CheckBox" parent="HBox/Grid"]
+layout_mode = 2
+
+[node name="Filler" type="Control" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SideMenu" type="VBoxContainer" parent="HBox"]
+layout_mode = 2

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpgbjdx6rpgu5"]
+[gd_scene load_steps=5 format=3 uid="uid://cpgbjdx6rpgu5"]
 
 [ext_resource type="Theme" uid="uid://dqqhynmg03neg" path="res://resources/ui/themes/default.tres" id="1_lde4l"]
 [ext_resource type="Script" uid="uid://dd6bl1sdun1n1" path="res://scenes/menus/pause_menu/pause_menu.gd" id="2_fgv3k"]
+[ext_resource type="PackedScene" uid="uid://dat7nk77r14m2" path="res://scenes/menus/settings_menu/settings_menu.tscn" id="3_i58lr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lde4l"]
 bg_color = Color(0, 0, 0, 0.466667)
@@ -51,8 +52,13 @@ text = "Quit to Main Menu"
 layout_mode = 2
 text = "Quit to Desktop"
 
+[node name="SettingsMenu" parent="." instance=ExtResource("3_i58lr")]
+visible = false
+layout_mode = 2
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Margin/Panel/Margin/Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Margin/Panel/Margin/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Margin/Panel/Margin/Buttons/QuitMainMenuButton" to="." method="_on_quit_main_menu_button_pressed"]
 [connection signal="pressed" from="Margin/Panel/Margin/Buttons/QuitDesktopButton" to="." method="_on_quit_desktop_button_pressed"]
+[connection signal="visibility_changed" from="SettingsMenu" to="." method="_on_settings_menu_visibility_changed"]

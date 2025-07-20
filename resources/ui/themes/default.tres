@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dqqhynmg03neg"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dqqhynmg03neg"]
 
 [ext_resource type="FontFile" uid="uid://cxslm6uq2wpbg" path="res://assets/fonts/Play-Bold.ttf" id="1_k2jd7"]
 
@@ -12,9 +12,14 @@ bg_color = Color(0.117647, 0.117647, 0.117647, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2jd7"]
 bg_color = Color(0.196078, 0.196078, 0.196078, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3020"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+
 [resource]
 default_font = ExtResource("1_k2jd7")
 default_font_size = 24
 Button/styles/normal = SubResource("StyleBoxFlat_u73c6")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_k2jd7")
+TabContainer/constants/side_margin = 0
+TabContainer/styles/panel = SubResource("StyleBoxFlat_h3020")
 VBoxContainer/constants/separation = 16
