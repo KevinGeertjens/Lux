@@ -17,7 +17,9 @@ boot_splash/image="uid://fw1wb517thso"
 
 [autoload]
 
-SceneManager="*res://autoload/scene_manager.gd"
+SceneManager="*res://autoload/utilities/scene_manager.gd"
+JsonFile="*res://autoload/utilities/json_file.gd"
+GraphicsSettings="*res://autoload/settings/graphics/graphics_settings.gd"
 
 [display]
 

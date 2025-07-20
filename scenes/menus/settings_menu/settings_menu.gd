@@ -9,7 +9,7 @@ func _process(_delta: float) -> void:
 
 func _on_visibility_changed() -> void:
 	if visible:
-		call_deferred("_focus_first_tab")
+		call_deferred("_focus_first_tab") # call_deferred to wait for tab buttons to initialize
 
 func _focus_first_tab() -> void:
 	var tabBar: TabBar = tabs.get_tab_bar()
