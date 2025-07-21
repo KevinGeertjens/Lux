@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dat7nk77r14m2"]
+[gd_scene load_steps=8 format=3 uid="uid://dat7nk77r14m2"]
 
 [ext_resource type="Theme" uid="uid://dqqhynmg03neg" path="res://resources/ui/themes/default.tres" id="1_hpmpe"]
 [ext_resource type="LabelSettings" uid="uid://b2dac8m8u1jg1" path="res://resources/ui/label_settings/header_1.tres" id="2_clh75"]
 [ext_resource type="Script" uid="uid://chxech6irywm" path="res://scenes/menus/settings_menu/settings_menu.gd" id="2_tlkng"]
 [ext_resource type="PackedScene" uid="uid://dlyro3lv8oksq" path="res://scenes/menus/settings_menu/graphics_settings/graphics_settings.tscn" id="3_hvlft"]
+[ext_resource type="PackedScene" uid="uid://cdcnmibdayp4b" path="res://scenes/menus/settings_menu/audio_settings/audio_settings.tscn" id="5_h44vs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clh75"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -71,13 +72,9 @@ current_tab = 0
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Audio" type="MarginContainer" parent="Margin/Panel/Margin/VBox/Tabs"]
+[node name="Audio" parent="Margin/Panel/Margin/VBox/Tabs" instance=ExtResource("5_h44vs")]
 visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
 metadata/_tab_index = 1
 
 [node name="Controls" type="MarginContainer" parent="Margin/Panel/Margin/VBox/Tabs"]

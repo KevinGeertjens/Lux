@@ -4,12 +4,6 @@ enum WINDOW_MODE {FULLSCREEN, BORDERLESS_WINDOW, WINDOWED}
 const WINDOW_SIZE: Array = ["1280x720", "1920x1080", "2560x1440", "3840x2160"]
 
 func _ready() -> void:
-	_set_constants()
-	_load()
-	_save()
-	_apply()
-
-func _set_constants() -> void:
 	PATH = "user://graphics_settings.json"
 	DEFAULT_SETTINGS = {
 		"windowSize" : "1920x1080",
@@ -17,6 +11,10 @@ func _set_constants() -> void:
 		"monitor": 0,
 		"vsync" : true,
 	}
+
+	_load()
+	_save()
+	_apply()
 
 func _apply() -> void:
 	set_window_size(settings["windowSize"])

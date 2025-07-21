@@ -18,10 +18,11 @@ boot_splash/image="uid://fw1wb517thso"
 [autoload]
 
 SceneManager="*res://autoload/utilities/scene_manager.gd"
-GraphicsSettings="*res://autoload/settings/graphics/graphics_settings.gd"
 JsonFileUtils="*res://autoload/utilities/json_file_utils.gd"
 EnumUtils="*res://autoload/utilities/enum_utils.gd"
 UiUtils="*res://autoload/utilities/ui_utils.gd"
+GraphicsSettings="*res://autoload/settings/graphics_settings.gd"
+AudioSettings="*res://autoload/settings/audio_settings.gd"
 
 [display]
 
