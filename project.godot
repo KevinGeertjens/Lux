@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Lux Game Template"
-run/main_scene="uid://cx87h04vsqr1s"
+run/main_scene="uid://bj4iebdcykfo1"
 config/features=PackedStringArray("4.4", "Forward Plus")
-boot_splash/image="uid://fw1wb517thso"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 
 [autoload]
 

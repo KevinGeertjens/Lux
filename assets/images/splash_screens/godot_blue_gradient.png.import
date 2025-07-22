@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fw1wb517thso"
-path="res://.godot/imported/splash_screen.png-b91bc275733718788a55feb4883f200a.ctex"
+uid="uid://d26pbffsgt5rs"
+path="res://.godot/imported/godot_blue_gradient.png-de4ff0963e1086875e34e5fe37c5daf4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/splash_screen.png"
-dest_files=["res://.godot/imported/splash_screen.png-b91bc275733718788a55feb4883f200a.ctex"]
+source_file="res://assets/images/splash_screens/godot_blue_gradient.png"
+dest_files=["res://.godot/imported/godot_blue_gradient.png-de4ff0963e1086875e34e5fe37c5daf4.ctex"]
 
 [params]
 
