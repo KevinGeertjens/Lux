@@ -2,9 +2,10 @@ extends PanelContainer
 
 @onready var tabs: TabContainer = $Margin/Panel/Margin/VBox/Tabs
 @onready var graphics: MarginContainer = $Margin/Panel/Margin/VBox/Tabs/Graphics
+@onready var controls: MarginContainer = $Margin/Panel/Margin/VBox/Tabs/Controls
 
 func _process(_delta: float) -> void:
-	if visible && Input.is_action_just_pressed("ui_cancel"):
+	if visible && controls.inputDebounce <= 0 && Input.is_action_just_pressed("ui_cancel"):
 		hide()
 
 func _on_visibility_changed() -> void:

@@ -32,7 +32,7 @@ func _save() -> void:
 	
 	JsonFileUtils.save_dict(inputMap, PATH)
 
-func _set_action_event(action: String, event: InputEvent) -> void:
+func set_action_event(action: String, event: InputEvent) -> void:
 	InputMap.action_erase_events(action)
 	InputMap.action_add_event(action, event)
 	_save()
