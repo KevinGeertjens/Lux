@@ -111,4 +111,5 @@ func _on_action_button_pressed(button: Button) -> void:
 		_selectedButton = button
 
 func _on_default_button_pressed() -> void:
-	pass
+	ControlsSettings.set_default_settings()
+	_update_action_buttons()
