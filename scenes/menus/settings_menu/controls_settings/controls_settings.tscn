@@ -19,11 +19,17 @@ script = ExtResource("2_jr7qr")
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Grid" type="GridContainer" parent="HBox"]
+[node name="Scroll" type="ScrollContainer" parent="HBox"]
 layout_mode = 2
-theme_override_constants/h_separation = 24
-theme_override_constants/v_separation = 12
-columns = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+horizontal_scroll_mode = 0
+
+[node name="KeybindSections" type="VBoxContainer" parent="HBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 48
 
 [node name="Filler" type="Control" parent="HBox"]
 layout_mode = 2

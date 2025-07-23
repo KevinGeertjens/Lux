@@ -9,7 +9,6 @@ func _ready() -> void:
 func _load() -> void:
 	var inputMap: Dictionary = JsonFileUtils.load_dict(PATH)
 	if !inputMap:
-		print("Using default inputs")
 		return # Game will use default input map as defined in the project
 
 	for action in inputMap.keys():

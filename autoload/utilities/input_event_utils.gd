@@ -17,7 +17,11 @@ func serialize_input_event(event: InputEvent) -> Dictionary:
 func serialize_input_event_key(event: InputEventKey) -> Dictionary:
 	var dict: Dictionary = {}
 	dict["type"] = "InputEventKey"
+	
 	dict["keycode"] = event.keycode
+	if dict["keycode"] == 0:
+		dict["keycode"] = event.physical_keycode
+
 	dict["location"] = event.location
 	return dict
 
