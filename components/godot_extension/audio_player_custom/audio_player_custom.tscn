@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://boheb17q4m3h5"]
+
+[ext_resource type="Script" uid="uid://dfpvluqduwk34" path="res://components/godot_extension/audio_player_custom/audio_player_custom.gd" id="1_3gkxh"]
+
+[node name="AudioPlayerCustom" type="Node2D"]
+script = ExtResource("1_3gkxh")

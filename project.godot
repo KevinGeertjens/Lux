@@ -18,6 +18,7 @@ boot_splash/show_image=false
 
 [autoload]
 
+Sounds="*res://autoload/resources/sounds.gd"
 SceneManager="*res://autoload/utilities/scene_manager.gd"
 JsonFileUtils="*res://autoload/utilities/json_file_utils.gd"
 EnumUtils="*res://autoload/utilities/enum_utils.gd"
@@ -26,6 +27,7 @@ UiUtils="*res://autoload/utilities/ui_utils.gd"
 GraphicsSettings="*res://autoload/settings/graphics_settings.gd"
 AudioSettings="*res://autoload/settings/audio_settings.gd"
 ControlsSettings="*res://autoload/settings/controls_settings.gd"
+AudioController="*res://autoload/managers/audio_controller.gd"
 
 [display]
 

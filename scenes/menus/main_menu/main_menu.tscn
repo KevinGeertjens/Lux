@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx87h04vsqr1s"]
+[gd_scene load_steps=6 format=3 uid="uid://cx87h04vsqr1s"]
 
 [ext_resource type="LabelSettings" uid="uid://t52sogethdwd" path="res://resources/ui/label_settings/title.tres" id="1_1gdud"]
 [ext_resource type="Theme" uid="uid://dqqhynmg03neg" path="res://resources/ui/themes/default.tres" id="1_e7q4l"]
 [ext_resource type="Script" uid="uid://d4deo3j204638" path="res://scenes/menus/main_menu/main_menu.gd" id="2_gm7d7"]
 [ext_resource type="PackedScene" uid="uid://dat7nk77r14m2" path="res://scenes/menus/settings_menu/settings_menu.tscn" id="4_peecx"]
+[ext_resource type="Script" uid="uid://dfpvluqduwk34" path="res://components/godot_extension/audio_player_custom/audio_player_custom.gd" id="5_ub2bi"]
 
 [node name="MainMenu" type="PanelContainer"]
 anchors_preset = 15
@@ -49,6 +50,10 @@ text = "Quit"
 [node name="SettingsMenu" parent="." instance=ExtResource("4_peecx")]
 visible = false
 layout_mode = 2
+
+[node name="AudioPlayer" type="Node2D" parent="."]
+script = ExtResource("5_ub2bi")
+metadata/_custom_type_script = "uid://dfpvluqduwk34"
 
 [connection signal="pressed" from="Margin/VBox/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Margin/VBox/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]

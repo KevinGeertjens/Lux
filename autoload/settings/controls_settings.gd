@@ -42,3 +42,4 @@ func set_action_event(action: String, event: InputEvent) -> void:
 
 func set_default_settings() -> void:
 	_load(DEFAULT_PATH)
+	_save()
