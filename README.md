@@ -5,8 +5,10 @@ Lux is a game template made for Godot (4.4). It includes a basic setup of common
 - Pause Menu
 - Video/Audio Settings
 - Customizable Key Bindings
-- Character Movement
-- Camera
+- Audio Controller
+- Scene Transition Animation
+- Splash Screen(s)
+- Basic UI Theme
 
 ## Usage
 Anyone is free to use this template. I made it for personal use, so it will not be updated regularly. Keep in mind that if the engine updates, the template may be out of date. The current version was made for Godot 4.4.
