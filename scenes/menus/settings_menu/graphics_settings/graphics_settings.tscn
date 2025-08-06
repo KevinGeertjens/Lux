@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlyro3lv8oksq"]
+
+[ext_resource type="Theme" uid="uid://dqqhynmg03neg" path="res://resources/ui/themes/default.tres" id="1_xon03"]
+[ext_resource type="Script" uid="uid://dm72h2bv50q71" path="res://scenes/menus/settings_menu/graphics_settings/graphics_settings.gd" id="2_ue75y"]
+[ext_resource type="Script" uid="uid://cwxmrvab2ybhp" path="res://components/godot_extension/ui/button_custom.gd" id="3_ltvcn"]
+[ext_resource type="Script" uid="uid://dbspmtkt3g7qr" path="res://components/godot_extension/ui/option_button_custom.gd" id="3_vgyj4"]
+[ext_resource type="Script" uid="uid://dfpvluqduwk34" path="res://components/godot_extension/audio_player_custom/audio_player_custom.gd" id="4_2cic2"]
+[ext_resource type="Script" uid="uid://k14hmbgs4qyf" path="res://components/godot_extension/ui/checkbox_custom.gd" id="4_m1st3"]
+
+[node name="GraphicsSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xon03")
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+script = ExtResource("2_ue75y")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="HBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="WindowSizeLabel" type="Label" parent="HBox/Grid"]
+layout_mode = 2
+text = "Window Size"
+
+[node name="WindowSizeButton" type="OptionButton" parent="HBox/Grid" node_paths=PackedStringArray("audioPlayer")]
+layout_mode = 2
+script = ExtResource("3_vgyj4")
+audioPlayer = NodePath("../../../AudioPlayer")
+metadata/_custom_type_script = "uid://dbspmtkt3g7qr"
+
+[node name="WindowModeLabel" type="Label" parent="HBox/Grid"]
+layout_mode = 2
+text = "Window Mode"
+
+[node name="WindowModeButton" type="OptionButton" parent="HBox/Grid" node_paths=PackedStringArray("audioPlayer")]
+layout_mode = 2
+script = ExtResource("3_vgyj4")
+audioPlayer = NodePath("../../../AudioPlayer")
+metadata/_custom_type_script = "uid://dbspmtkt3g7qr"
+
+[node name="MonitorLabel" type="Label" parent="HBox/Grid"]
+layout_mode = 2
+text = "Monitor"
+
+[node name="MonitorButton" type="OptionButton" parent="HBox/Grid" node_paths=PackedStringArray("audioPlayer")]
+layout_mode = 2
+script = ExtResource("3_vgyj4")
+audioPlayer = NodePath("../../../AudioPlayer")
+metadata/_custom_type_script = "uid://dbspmtkt3g7qr"
+
+[node name="VsyncLabel" type="Label" parent="HBox/Grid"]
+layout_mode = 2
+text = "Vsync"
+
+[node name="VsyncCheckBox" type="CheckBox" parent="HBox/Grid" node_paths=PackedStringArray("audioPlayer")]
+layout_mode = 2
+size_flags_horizontal = 0
+script = ExtResource("4_m1st3")
+audioPlayer = NodePath("../../../AudioPlayer")
+metadata/_custom_type_script = "uid://k14hmbgs4qyf"
+
+[node name="Filler" type="Control" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SideMenu" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+
+[node name="Filler" type="Control" parent="HBox/SideMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DefaultButton" type="Button" parent="HBox/SideMenu" node_paths=PackedStringArray("audioPlayer")]
+layout_mode = 2
+text = "Default Settings"
+script = ExtResource("3_ltvcn")
+audioPlayer = NodePath("../../../AudioPlayer")
+metadata/_custom_type_script = "uid://cwxmrvab2ybhp"
+
+[node name="AudioPlayer" type="Node2D" parent="."]
+script = ExtResource("4_2cic2")
+metadata/_custom_type_script = "uid://dfpvluqduwk34"
+
+[connection signal="item_selected" from="HBox/Grid/WindowSizeButton" to="." method="_on_window_size_button_item_selected"]
+[connection signal="item_selected" from="HBox/Grid/WindowModeButton" to="." method="_on_window_mode_button_item_selected"]
+[connection signal="item_selected" from="HBox/Grid/MonitorButton" to="." method="_on_monitor_button_item_selected"]
+[connection signal="toggled" from="HBox/Grid/VsyncCheckBox" to="." method="_on_vsync_check_box_toggled"]
+[connection signal="pressed" from="HBox/SideMenu/DefaultButton" to="." method="_on_default_button_pressed"]

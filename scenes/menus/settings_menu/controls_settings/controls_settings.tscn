@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://1og72jx2frrp"]
+
+[ext_resource type="Theme" uid="uid://dqqhynmg03neg" path="res://resources/ui/themes/default.tres" id="1_m1psh"]
+[ext_resource type="Script" uid="uid://c7n1p2h4m6slc" path="res://scenes/menus/settings_menu/controls_settings/controls_settings.gd" id="2_jr7qr"]
+[ext_resource type="Script" uid="uid://cwxmrvab2ybhp" path="res://components/godot_extension/ui/button_custom.gd" id="3_ulm1w"]
+[ext_resource type="Script" uid="uid://dfpvluqduwk34" path="res://components/godot_extension/audio_player_custom/audio_player_custom.gd" id="4_7xxdf"]
+
+[node name="ControlsSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_m1psh")
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+script = ExtResource("2_jr7qr")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+horizontal_scroll_mode = 0
+
+[node name="Margin" type="MarginContainer" parent="HBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 0
+
+[node name="KeybindSections" type="VBoxContainer" parent="HBox/Scroll/Margin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 48
+
+[node name="Filler" type="Control" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SideMenu" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+
+[node name="Filler" type="Control" parent="HBox/SideMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DefaultButton" type="Button" parent="HBox/SideMenu" node_paths=PackedStringArray("audioPlayer")]
+layout_mode = 2
+text = "Default Settings"
+script = ExtResource("3_ulm1w")
+audioPlayer = NodePath("../../../AudioPlayer")
+metadata/_custom_type_script = "uid://cwxmrvab2ybhp"
+
+[node name="AudioPlayer" type="Node2D" parent="."]
+script = ExtResource("4_7xxdf")
+metadata/_custom_type_script = "uid://dfpvluqduwk34"
+
+[connection signal="pressed" from="HBox/SideMenu/DefaultButton" to="." method="_on_default_button_pressed"]
