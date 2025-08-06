@@ -5,14 +5,14 @@ extends PanelContainer
 
 func _ready() -> void:
 	playButton.grab_focus()
+	FadeSceneTransition.fade_in()
 
 func _on_settings_menu_visibility_changed() -> void:
 	if playButton != null:
 		playButton.grab_focus()
 
-
 func _on_play_button_pressed() -> void:
-	SceneManager.change_scene(load("res://scenes/gameplay/gameplay.tscn"))
+	FadeSceneTransition.fade_to("res://scenes/gameplay/gameplay.tscn")
 
 func _on_settings_button_pressed() -> void:
 	settingsMenu.show()

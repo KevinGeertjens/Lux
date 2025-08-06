@@ -21,7 +21,7 @@ func _on_settings_button_pressed() -> void:
 
 func _on_quit_main_menu_button_pressed() -> void:
 	get_tree().paused = false
-	SceneManager.change_scene(load("res://scenes/menus/main_menu/main_menu.tscn"))
+	FadeSceneTransition.fade_to("res://scenes/menus/main_menu/main_menu.tscn")
 
 func _on_quit_desktop_button_pressed() -> void:
 	get_tree().quit()

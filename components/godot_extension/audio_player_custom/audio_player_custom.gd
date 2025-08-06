@@ -2,9 +2,9 @@
 extends Node2D
 class_name AudioPlayerCustom
 
-var _audioPlayers: Array = []
+var _audioPlayers: Array[AudioStreamPlayer] = []
 
-func playSound(sound: AudioStream, playerOwner=self, pitch=1.0, bus="Master") -> void:
+func play_sound(sound: AudioStream, playerOwner=self, pitch=1.0, bus="Master") -> void:
 	if playerOwner == null:
 		playerOwner = get_tree().current_scene # Some nodes give the tree root, which could be null
 
@@ -31,7 +31,7 @@ func playSound(sound: AudioStream, playerOwner=self, pitch=1.0, bus="Master") ->
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_PREDELETE:
-		for player: AudioStreamPlayer in _audioPlayers:
+		for player in _audioPlayers:
 			if player == null:
 				continue
 			

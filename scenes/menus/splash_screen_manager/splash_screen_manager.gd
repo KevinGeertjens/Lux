@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_anything_pressed():
-		SceneManager.change_scene(nextScene)
+		FadeSceneTransition.fade_to_direct(nextScene)
 
 func _get_screens() -> void:
 	_splashScreens = splashScreenContainer.get_children()
@@ -26,7 +26,7 @@ func _get_screens() -> void:
 
 func _fade() -> void:
 	for screen: TextureRect in _splashScreens:
-		var tween := create_tween()
+		var tween: Tween = create_tween()
 		tween.tween_interval(startTime)
 		tween.tween_property(screen, "modulate:a", 1.0, fadeInTime)
 		tween.tween_interval(pauseTime)
@@ -34,4 +34,4 @@ func _fade() -> void:
 		tween.tween_interval(endTime)
 		await tween.finished
 
-	SceneManager.change_scene(nextScene)
+	FadeSceneTransition.fade_to_direct(nextScene)

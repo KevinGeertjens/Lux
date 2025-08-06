@@ -1,6 +1,6 @@
 extends Node
 
-func change_scene(newScene: Resource) -> void:
+func change_scene(newScene: PackedScene) -> void:
 	var root: Window = get_tree().get_root()
 	var currentScene: Node = get_tree().current_scene
 	

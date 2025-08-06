@@ -19,7 +19,7 @@ boot_splash/show_image=false
 [autoload]
 
 Sounds="*res://autoload/resources/sounds.gd"
-SceneManager="*res://autoload/utilities/scene_manager.gd"
+SceneManager="*res://autoload/managers/scene_manager.gd"
 JsonFileUtils="*res://autoload/utilities/json_file_utils.gd"
 EnumUtils="*res://autoload/utilities/enum_utils.gd"
 InputEventUtils="*res://autoload/utilities/input_event_utils.gd"
@@ -28,6 +28,7 @@ GraphicsSettings="*res://autoload/settings/graphics_settings.gd"
 AudioSettings="*res://autoload/settings/audio_settings.gd"
 ControlsSettings="*res://autoload/settings/controls_settings.gd"
 AudioController="*res://autoload/managers/audio_controller.gd"
+FadeSceneTransition="*res://autoload/scene_transitions/fade_scene_transition/fade_scene_transition.tscn"
 
 [display]
 
