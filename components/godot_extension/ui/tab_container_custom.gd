@@ -1,11 +1,12 @@
-extends Button
-class_name ButtonCustom
+extends TabContainer
+class_name TabContainerCustom
 
 @export var audioPlayer: AudioPlayerCustom = null
 
 func _ready() -> void:
-	pressed.connect(_on_pressed)
+	tab_selected.connect(_on_tab_selected)
 
-func _on_pressed() -> void:
+func _on_tab_selected(_tab: int) -> void:
 	if audioPlayer != null:
 		audioPlayer.play_sound(Sounds.UI_BUTTON_CLICK, "SFX")
+

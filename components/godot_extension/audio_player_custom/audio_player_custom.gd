@@ -4,7 +4,7 @@ class_name AudioPlayerCustom
 
 var _audioPlayers: Array[AudioStreamPlayer] = []
 
-func play_sound(sound: AudioStream, playerOwner=self, pitch=1.0, bus="Master") -> void:
+func play_sound(sound: AudioStream, bus="Master", pitch=1.0, playerOwner=self) -> void:
 	if playerOwner == null:
 		playerOwner = get_tree().current_scene # Some nodes give the tree root, which could be null
 

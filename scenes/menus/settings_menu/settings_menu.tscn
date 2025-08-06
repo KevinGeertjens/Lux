@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://dat7nk77r14m2"]
+[gd_scene load_steps=12 format=3 uid="uid://dat7nk77r14m2"]
 
 [ext_resource type="Theme" uid="uid://dqqhynmg03neg" path="res://resources/ui/themes/default.tres" id="1_hpmpe"]
 [ext_resource type="LabelSettings" uid="uid://b2dac8m8u1jg1" path="res://resources/ui/label_settings/header_1.tres" id="2_clh75"]
 [ext_resource type="Script" uid="uid://chxech6irywm" path="res://scenes/menus/settings_menu/settings_menu.gd" id="2_tlkng"]
 [ext_resource type="PackedScene" uid="uid://dlyro3lv8oksq" path="res://scenes/menus/settings_menu/graphics_settings/graphics_settings.tscn" id="3_hvlft"]
+[ext_resource type="Script" uid="uid://cwxmrvab2ybhp" path="res://components/godot_extension/ui/button_custom.gd" id="4_nwvhg"]
+[ext_resource type="Script" uid="uid://c8r4dbi71psd0" path="res://components/godot_extension/ui/tab_container_custom.gd" id="5_gj3ml"]
 [ext_resource type="PackedScene" uid="uid://cdcnmibdayp4b" path="res://scenes/menus/settings_menu/audio_settings/audio_settings.tscn" id="5_h44vs"]
 [ext_resource type="PackedScene" uid="uid://1og72jx2frrp" path="res://scenes/menus/settings_menu/controls_settings/controls_settings.tscn" id="6_01fv2"]
+[ext_resource type="Script" uid="uid://dfpvluqduwk34" path="res://components/godot_extension/audio_player_custom/audio_player_custom.gd" id="8_gj3ml"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clh75"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -56,19 +59,25 @@ label_settings = ExtResource("2_clh75")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ExitButton" type="Button" parent="Margin/Panel/Margin/VBox/Header"]
+[node name="ExitButton" type="Button" parent="Margin/Panel/Margin/VBox/Header" node_paths=PackedStringArray("audioPlayer")]
 custom_minimum_size = Vector2(66, 66)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "X"
+script = ExtResource("4_nwvhg")
+audioPlayer = NodePath("../../../../../../AudioPlayer")
+metadata/_custom_type_script = "uid://cwxmrvab2ybhp"
 
 [node name="Filler" type="Control" parent="Margin/Panel/Margin/VBox"]
 layout_mode = 2
 
-[node name="Tabs" type="TabContainer" parent="Margin/Panel/Margin/VBox"]
+[node name="Tabs" type="TabContainer" parent="Margin/Panel/Margin/VBox" node_paths=PackedStringArray("audioPlayer")]
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
+script = ExtResource("5_gj3ml")
+audioPlayer = NodePath("../../../../../AudioPlayer")
+metadata/_custom_type_script = "uid://c8r4dbi71psd0"
 
 [node name="Graphics" parent="Margin/Panel/Margin/VBox/Tabs" instance=ExtResource("3_hvlft")]
 layout_mode = 2
@@ -83,6 +92,10 @@ metadata/_tab_index = 1
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="AudioPlayer" type="Node2D" parent="."]
+script = ExtResource("8_gj3ml")
+metadata/_custom_type_script = "uid://dfpvluqduwk34"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Margin/Panel/Margin/VBox/Header/ExitButton" to="." method="_on_exit_button_pressed"]

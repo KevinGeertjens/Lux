@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdcnmibdayp4b"]
+[gd_scene load_steps=6 format=3 uid="uid://cdcnmibdayp4b"]
 
 [ext_resource type="Theme" uid="uid://dqqhynmg03neg" path="res://resources/ui/themes/default.tres" id="1_v5f10"]
 [ext_resource type="Script" uid="uid://c377yr3s6fbg7" path="res://scenes/menus/settings_menu/audio_settings/audio_settings.gd" id="2_q7kem"]
+[ext_resource type="Script" uid="uid://cwxmrvab2ybhp" path="res://components/godot_extension/ui/button_custom.gd" id="3_0q04c"]
+[ext_resource type="Script" uid="uid://6xpqtu2yhxsb" path="res://components/godot_extension/ui/slider_custom.gd" id="3_kl6cl"]
+[ext_resource type="Script" uid="uid://dfpvluqduwk34" path="res://components/godot_extension/audio_player_custom/audio_player_custom.gd" id="4_kl6cl"]
 
 [node name="AudioSettings" type="MarginContainer"]
 anchors_preset = 15
@@ -29,10 +32,13 @@ columns = 2
 layout_mode = 2
 text = "Master"
 
-[node name="MasterVolumeSlider" type="HSlider" parent="HBox/Grid"]
+[node name="MasterVolumeSlider" type="HSlider" parent="HBox/Grid" node_paths=PackedStringArray("audioPlayer")]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 1
+script = ExtResource("3_kl6cl")
+audioPlayer = NodePath("../../../AudioPlayer")
+metadata/_custom_type_script = "uid://6xpqtu2yhxsb"
 
 [node name="MusicVolumeLabel" type="Label" parent="HBox/Grid"]
 layout_mode = 2
@@ -47,10 +53,13 @@ size_flags_vertical = 1
 layout_mode = 2
 text = "SFX"
 
-[node name="SfxVolumeSlider" type="HSlider" parent="HBox/Grid"]
+[node name="SfxVolumeSlider" type="HSlider" parent="HBox/Grid" node_paths=PackedStringArray("audioPlayer")]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 1
+script = ExtResource("3_kl6cl")
+audioPlayer = NodePath("../../../AudioPlayer")
+metadata/_custom_type_script = "uid://6xpqtu2yhxsb"
 
 [node name="Filler" type="Control" parent="HBox"]
 layout_mode = 2
@@ -63,9 +72,16 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="DefaultButton" type="Button" parent="HBox/SideMenu"]
+[node name="DefaultButton" type="Button" parent="HBox/SideMenu" node_paths=PackedStringArray("audioPlayer")]
 layout_mode = 2
 text = "Default Settings"
+script = ExtResource("3_0q04c")
+audioPlayer = NodePath("../../../AudioPlayer")
+metadata/_custom_type_script = "uid://cwxmrvab2ybhp"
+
+[node name="AudioPlayer" type="Node2D" parent="."]
+script = ExtResource("4_kl6cl")
+metadata/_custom_type_script = "uid://dfpvluqduwk34"
 
 [connection signal="value_changed" from="HBox/Grid/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="HBox/Grid/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]

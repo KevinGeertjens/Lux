@@ -52,6 +52,12 @@ folder_colors={
 
 theme/default_font_generate_mipmaps=true
 
+[importer_defaults]
+
+wav={
+&"compress/mode": 0
+}
+
 [input]
 
 ui_game_menu={

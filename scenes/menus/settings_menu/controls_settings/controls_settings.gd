@@ -14,6 +14,7 @@ const SECTION_ACTIONS: Dictionary = {
 }
 
 @onready var _keybindSections = $HBox/Scroll/Margin/KeybindSections
+@onready var _audioPlayer = $AudioPlayer
 
 var _section_nodes: Dictionary = {}
 var _awaitingInput: bool = false
@@ -82,7 +83,8 @@ func _section_add_action_button(section: String, action: String) -> void:
 	label.custom_minimum_size.x = LABEL_WIDTH
 	grid.add_child(label)
 
-	var button = Button.new()
+	var button = ButtonCustom.new()
+	button.audioPlayer = _audioPlayer
 	button.name = action
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	button.connect("pressed", _on_action_button_pressed.bind(button))

@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://dqqhynmg03neg" path="res://resources/ui/themes/default.tres" id="1_e7q4l"]
 [ext_resource type="Script" uid="uid://d4deo3j204638" path="res://scenes/menus/main_menu/main_menu.gd" id="2_gm7d7"]
 [ext_resource type="PackedScene" uid="uid://dat7nk77r14m2" path="res://scenes/menus/settings_menu/settings_menu.tscn" id="4_peecx"]
-[ext_resource type="Script" uid="uid://cwxmrvab2ybhp" path="res://components/godot_extension/ui/button_custom/button_custom.gd" id="4_x31ro"]
+[ext_resource type="Script" uid="uid://cwxmrvab2ybhp" path="res://components/godot_extension/ui/button_custom.gd" id="4_x31ro"]
 [ext_resource type="Script" uid="uid://dfpvluqduwk34" path="res://components/godot_extension/audio_player_custom/audio_player_custom.gd" id="5_ub2bi"]
 
 [node name="MainMenu" type="PanelContainer"]

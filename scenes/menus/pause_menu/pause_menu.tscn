@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpgbjdx6rpgu5"]
+[gd_scene load_steps=7 format=3 uid="uid://cpgbjdx6rpgu5"]
 
 [ext_resource type="Theme" uid="uid://dqqhynmg03neg" path="res://resources/ui/themes/default.tres" id="1_lde4l"]
 [ext_resource type="Script" uid="uid://dd6bl1sdun1n1" path="res://scenes/menus/pause_menu/pause_menu.gd" id="2_fgv3k"]
 [ext_resource type="PackedScene" uid="uid://dat7nk77r14m2" path="res://scenes/menus/settings_menu/settings_menu.tscn" id="3_i58lr"]
+[ext_resource type="Script" uid="uid://cwxmrvab2ybhp" path="res://components/godot_extension/ui/button_custom.gd" id="3_j1dl3"]
+[ext_resource type="Script" uid="uid://dfpvluqduwk34" path="res://components/godot_extension/audio_player_custom/audio_player_custom.gd" id="5_hp7xe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lde4l"]
 bg_color = Color(0, 0, 0, 0.466667)
@@ -36,25 +38,41 @@ theme_override_constants/margin_right = 32
 layout_mode = 2
 alignment = 1
 
-[node name="ContinueButton" type="Button" parent="Margin/Panel/Margin/Buttons"]
+[node name="ContinueButton" type="Button" parent="Margin/Panel/Margin/Buttons" node_paths=PackedStringArray("audioPlayer")]
 layout_mode = 2
 text = "Continue"
+script = ExtResource("3_j1dl3")
+audioPlayer = NodePath("../../../../../AudioPlayer")
+metadata/_custom_type_script = "uid://cwxmrvab2ybhp"
 
-[node name="SettingsButton" type="Button" parent="Margin/Panel/Margin/Buttons"]
+[node name="SettingsButton" type="Button" parent="Margin/Panel/Margin/Buttons" node_paths=PackedStringArray("audioPlayer")]
 layout_mode = 2
 text = "Settings"
+script = ExtResource("3_j1dl3")
+audioPlayer = NodePath("../../../../../AudioPlayer")
+metadata/_custom_type_script = "uid://cwxmrvab2ybhp"
 
-[node name="QuitMainMenuButton" type="Button" parent="Margin/Panel/Margin/Buttons"]
+[node name="QuitMainMenuButton" type="Button" parent="Margin/Panel/Margin/Buttons" node_paths=PackedStringArray("audioPlayer")]
 layout_mode = 2
 text = "Quit to Main Menu"
+script = ExtResource("3_j1dl3")
+audioPlayer = NodePath("../../../../../AudioPlayer")
+metadata/_custom_type_script = "uid://cwxmrvab2ybhp"
 
-[node name="QuitDesktopButton" type="Button" parent="Margin/Panel/Margin/Buttons"]
+[node name="QuitDesktopButton" type="Button" parent="Margin/Panel/Margin/Buttons" node_paths=PackedStringArray("audioPlayer")]
 layout_mode = 2
 text = "Quit to Desktop"
+script = ExtResource("3_j1dl3")
+audioPlayer = NodePath("../../../../../AudioPlayer")
+metadata/_custom_type_script = "uid://cwxmrvab2ybhp"
 
 [node name="SettingsMenu" parent="." instance=ExtResource("3_i58lr")]
 visible = false
 layout_mode = 2
+
+[node name="AudioPlayer" type="Node2D" parent="."]
+script = ExtResource("5_hp7xe")
+metadata/_custom_type_script = "uid://dfpvluqduwk34"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Margin/Panel/Margin/Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
